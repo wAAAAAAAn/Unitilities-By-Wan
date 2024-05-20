@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Wan_Splash
+{
 public class CheckingNextScene : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -10,4 +12,5 @@ public class CheckingNextScene : MonoBehaviour
         GameManager.Instance.Debug_Checking();
         AudioManager.Instance.Debug_Checking();
     }
+}
 }

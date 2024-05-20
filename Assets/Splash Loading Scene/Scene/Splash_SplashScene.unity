@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Splash_MainScene
   loadingText: {fileID: 1203224451}
-  minimumExposureTime: 5
+  minimumExposureTime: 2
   initialData: {fileID: 11400000, guid: 035844cfb8e774e4c9a9cc31397ad4dd, type: 2}
 --- !u!4 &1046233051
 Transform:

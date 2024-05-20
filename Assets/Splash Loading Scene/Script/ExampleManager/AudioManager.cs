@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityCommunity.UnitySingleton;
-using Wan;
 
-
+namespace Wan_Splash
+{
 public class AudioManager : WanManager
 {
    public static AudioManager Instance;
@@ -34,4 +34,5 @@ public class AudioManager : WanManager
     {
         Debug.Log($"I'm Good [{this.GetType().Name}]");
     }
+}
 }

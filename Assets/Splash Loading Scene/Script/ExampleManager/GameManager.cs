@@ -5,8 +5,9 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityCommunity.UnitySingleton;
 using UnityEngine;
-using Wan;
 
+namespace Wan_Splash
+{
 public class GameManager : WanManager
 {
     public static GameManager Instance;
@@ -36,4 +37,5 @@ public class GameManager : WanManager
     {
         Debug.Log($"I'm Good [{this.GetType().Name}]");
     }
+}
 }

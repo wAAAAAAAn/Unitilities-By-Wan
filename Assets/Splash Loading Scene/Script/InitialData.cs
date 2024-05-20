@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Wan
+namespace Wan_Splash
 {
     [CreateAssetMenu(fileName = "InitialData", menuName = "InitialData", order = 0)]
 public class InitialData : ScriptableObject

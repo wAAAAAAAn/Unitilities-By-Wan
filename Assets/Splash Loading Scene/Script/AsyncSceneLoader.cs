@@ -7,7 +7,7 @@ using System.Diagnostics; // Stopwatch를 사용하기 위해 필요합니다.
 using TMPro;
 using Debug = UnityEngine.Debug;
 
-namespace Wan
+namespace Wan_Splash
 {
     // 비동기 씬 로더 클래스
     public class AsyncSceneLoader : MonoBehaviour

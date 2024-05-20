@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Wan
+namespace Wan_Splash
 {
 [Serializable]
 public abstract class WanManager : MonoBehaviour
