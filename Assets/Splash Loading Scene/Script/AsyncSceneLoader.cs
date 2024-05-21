@@ -63,7 +63,7 @@ namespace Wan_Splash
                 yield return new WaitForEndOfFrame();
             }
 
-
+            // 데이터에 등록된 매니저 생성 및 초기화
             foreach(var data in initialData.PersistentManager)
             {
                 GameObject AddManger = Instantiate(data);
