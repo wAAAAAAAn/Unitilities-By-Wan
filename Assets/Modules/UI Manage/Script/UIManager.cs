@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using Unity.Mathematics;
-
+using UnityCommunity.UnitySingleton;
 /*
 UI를 동적으로 캔버스에 생성하고 관리하는 매니저
 */
 
-public class UIManager : MonoBehaviour
+public class UIManager : MonoSingleton<UIManager>
     {
         [Header("Datas")]
         public UIData uiData;
@@ -17,6 +16,7 @@ public class UIManager : MonoBehaviour
         [SerializeField]
         private UIElement lastScreen, openScreen, modalScreen;
 
+        private Stack<UIElement> modalHistory;
         public UIElement CurrentScreen
         {
             get { return openScreen; }
@@ -24,6 +24,20 @@ public class UIManager : MonoBehaviour
 
         protected Dictionary<UIScreensList, UIElement> screensDictionary = new Dictionary<UIScreensList, UIElement>();
 
+        public void Init()
+        {
+            UIElement element;
+            foreach (var screen in uiData.UIScreens)
+            {
+                element = Instantiate(screen.screenGameObj, UICanvas).GetComponent<UIElement>();
+                element.Init(this);
+                element.gameObject.SetActive(false);
+
+                screensDictionary.Add(screen.screenName, element);
+            }
+
+            modalHistory = new Stack<UIElement>();
+        }
         public void OpenScreen(UIScreensList screenName)
         {
             UIElement screen = null;
@@ -84,6 +98,8 @@ public class UIManager : MonoBehaviour
             {
                 screen.isActive = true;
                 modalScreen = screen;
+
+                modalHistory.Push(modalScreen);
             }
             else
             {
@@ -93,8 +109,20 @@ public class UIManager : MonoBehaviour
 
         public void CloseModal()
         {
-            if (modalScreen != null)
-                modalScreen.isActive =false;
+            Debug.Log(modalHistory.Count );
+
+            if (modalHistory.Count != 0)
+                {
+                    modalHistory.Pop().isActive =false;
+                }
+        }
+
+        public void CloseAllModal()
+        {
+            while(modalHistory.Count !=0)
+            {
+                modalHistory.Pop().isActive = false;
+            }
         }
 
         public void CloseModal(UIScreensList uIScreensList)
